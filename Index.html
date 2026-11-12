@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Horizon Gym - Home</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #0d100f;
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 75px;
+    }
+
+    /* Top Bar */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+    }
+
+    .user-profile-area {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .avatar-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background-color: #5eead4;
+      color: #0d100f;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .user-greeting {
+      font-size: 12px;
+      color: #9ca3af;
+    }
+
+    .user-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .settings-btn {
+      font-size: 22px;
+      color: #cbd5e1;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Workout Banner */
+    .workout-banner {
+      margin: 10px 20px 20px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 16px;
+      padding: 20px;
+      color: #0d100f;
+      box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+    }
+
+    .workout-banner h2 {
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .workout-banner p {
+      font-size: 12px;
+      font-weight: 600;
+      color: #064e3b;
+    }
+
+    /* Featured Products Header */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px 14px;
+    }
+
+    .section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .view-all {
+      font-size: 12px;
+      color: #5eead4;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Products Grid */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      padding: 0 20px;
+    }
+
+    .product-card {
+      background-color: #171a19;
+      border-radius: 16px;
+      padding: 16px;
+      border: 1px solid #262a29;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 200px;
+    }
+
+    .product-icon-box {
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      color: #5eead4;
+      background-color: rgba(94, 234, 212, 0.05);
+      border-radius: 12px;
+      margin-bottom: 12px;
+    }
+
+    .product-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .product-desc {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 14px;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-price {
+      font-size: 15px;
+      font-weight: 700;
+      color: #5eead4;
+    }
+
+    .cart-btn {
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #262a29;
+      padding: 6px 10px;
+      border-radius: 8px;
+    }
+
+    /* Bottom Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #161918;
+      border-top: 1px solid #262a29;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0 12px;
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      color: #9ca3af;
+      text-decoration: none;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .nav-item.active {
+      color: #5eead4;
+    }
+
+    .nav-icon {
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="user-profile-area">
+      <div class="avatar-circle" id="userAvatar">U</div>
+      <div>
+        <div class="user-greeting">Hello,</div>
+        <div class="user-name" id="userName">Raftar</div>
+      </div>
+    </div>
+    <button class="settings-btn">⚙️</button>
+  </div>
+
+  <!-- Workout Banner -->
+  <div class="workout-banner">
+    <h2>Today's Workout is Ready!</h2>
+    <p>Use the Scan button below for quick gym entry.</p>
+  </div>
+
+  <!-- Featured Products Section -->
+  <div class="section-header">
+    <div class="section-title">Featured Products</div>
+    <a href="#" class="view-all">View All</a>
+  </div>
+
+  <!-- Products Grid (Dynamic API binding ready) -->
+  <div class="products-grid" id="productsGrid">
+    <!-- Product 1 -->
+    <div class="product-card">
+      <div>
+        <div class="product-icon-box">🏋️</div>
+        <div class="product-name">Whey Protein Isolate</div>
+        <div class="product-desc">100% Pure Muscle Recovery</div>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹2,499</div>
+        <button class="cart-btn">🛒+</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+      <div>
+        <div class="product-icon-box">👕</div>
+        <div class="product-name">Pro Gym T-Shirt</div>
+        <div class="product-desc">Dry-Fit Breathable Fabric</div>
+      </div>
+      <div class="product-footer">
+        <div class="product-price">₹699</div>
+        <button class="cart-btn">🛒+</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Navigation -->
+  <div class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <span class="nav-icon">🏠</span>
+      <span>Home</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">💪</span>
+      <span>Training</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">🛍️</span>
+      <span>Shop</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">📷</span>
+      <span>Scan</span>
+    </a>
+    <a href="#" class="nav-item">
+      <span class="nav-icon">👤</span>
+      <span>Profile</span>
+    </a>
+  </div>
+
+  <script>
+    // Yahan apna Home API URL daal dena jo user details aur featured products laएगा
+    const HOME_API_URL = '';
+
+    async function loadHomeData() {
+      if (!HOME_API_URL) return;
+
+      try {
+        const response = await fetch(HOME_API_URL, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data) {
+          if (data.userName) {
+            document.getElementById('userName').textContent = data.userName;
+            document.getElementById('userAvatar').textContent = data.userName.charAt(0).toUpperCase();
+          }
+          // Agar products array aaye to grid dynamically update kar sakte hain
+        }
+      } catch (error) {
+        console.error('Home API Error:', error);
+      }
+    }
+
+    loadHomeData();
+  </script>
+
+</body>
+</html>
